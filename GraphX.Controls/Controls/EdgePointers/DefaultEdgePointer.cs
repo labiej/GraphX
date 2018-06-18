@@ -150,19 +150,21 @@ namespace GraphX.Controls
 		/// </summary>
 		private static object CoerceVisibility(DependencyObject d, object baseValue)
 		{
-			var ecb = d as DefaultEdgePointer;
-			if (ecb == null || !ecb.IsSuppressed)
-				return baseValue;
+            if (!(d is DefaultEdgePointer ecb) || !ecb.IsSuppressed)
+                return baseValue;
 
-			return Visibility.Collapsed;
+            return Visibility.Collapsed;
 		}
 
 		private static EdgeControl GetEdgeControl(DependencyObject parent)
         {
             while (parent != null)
             {
-                var control = parent as EdgeControl;
-                if (control != null) return control;
+                if (parent is EdgeControl control)
+                {
+                    return control;
+                }
+
                 parent = VisualTreeHelper.GetParent(parent);
             }
             return null;

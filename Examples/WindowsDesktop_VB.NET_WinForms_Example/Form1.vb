@@ -25,9 +25,10 @@ Public Class Form1
         ZoomControl.SetViewFinderVisibility(_zoomctrl, Visibility.Visible)
 
         Dim logic = New GXLogicCore(Of DataVertex, DataEdge, BidirectionalGraph(Of DataVertex, DataEdge))()
-        _gArea = New GraphAreaExample()
-       ' _gArea.EnableWinFormsHostingMode = True
-        _gArea.LogicCore = logic
+        ' _gArea.EnableWinFormsHostingMode = True
+        _gArea = New GraphAreaExample With {
+            .LogicCore = logic
+        }
 
         logic.Graph = GenerateGraph()
         logic.DefaultLayoutAlgorithm = LayoutAlgorithmTypeEnum.KK
@@ -40,8 +41,9 @@ Public Class Form1
         logic.DefaultEdgeRoutingAlgorithm = EdgeRoutingAlgorithmTypeEnum.None
         logic.AsyncAlgorithmCompute = False
         _zoomctrl.Content = _gArea
-        Dim myResourceDictionary = New ResourceDictionary()
-        myResourceDictionary.Source = New Uri("Templates\template.xaml", UriKind.Relative)
+        Dim myResourceDictionary = New ResourceDictionary With {
+            .Source = New Uri("Templates\template.xaml", UriKind.Relative)
+        }
         _zoomctrl.Resources.MergedDictionaries.Add(myResourceDictionary)
 
         Return _zoomctrl
@@ -56,15 +58,18 @@ Public Class Form1
         Next
         Dim vlist = dataGraph.Vertices.ToList()
         'Then create two edges optionaly defining Text property to show who are connected
-        Dim dataEdge = New DataEdge(vlist(0), vlist(1))
-        dataEdge.Text = String.Format("{0} -> {1}", vlist(0), vlist(1))
+        Dim dataEdge = New DataEdge(vlist(0), vlist(1)) With {
+            .Text = String.Format("{0} -> {1}", vlist(0), vlist(1))
+        }
         dataGraph.AddEdge(dataEdge)
-        dataEdge = New DataEdge(vlist(2), vlist(3))
-        dataEdge.Text = String.Format("{0} -> {1}", vlist(2), vlist(3))
+        dataEdge = New DataEdge(vlist(2), vlist(3)) With {
+            .Text = String.Format("{0} -> {1}", vlist(2), vlist(3))
+        }
         dataGraph.AddEdge(dataEdge)
 
-        dataEdge = New DataEdge(vlist(2), vlist(2))
-        dataEdge.Text = String.Format("{0} -> {1}", vlist(2), vlist(2))
+        dataEdge = New DataEdge(vlist(2), vlist(2)) With {
+            .Text = String.Format("{0} -> {1}", vlist(2), vlist(2))
+        }
         dataGraph.AddEdge(dataEdge)
 
         Return dataGraph

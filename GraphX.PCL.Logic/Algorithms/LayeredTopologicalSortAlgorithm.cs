@@ -111,9 +111,8 @@ namespace GraphX.PCL.Logic.Algorithms
 
 		protected void OnLayerFinished( LayeredTopologicalSortEventArgs args )
 		{
-			if ( LayerFinished != null )
-				LayerFinished( this, args );
-		}
+            LayerFinished?.Invoke(this, args);
+        }
 
 		public class LayeredTopologicalSortEventArgs : EventArgs
 		{
