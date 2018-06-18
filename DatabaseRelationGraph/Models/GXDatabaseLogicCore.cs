@@ -22,8 +22,8 @@ namespace DatabaseRelationGraph.Models
             ((KKLayoutParameters)core.DefaultLayoutAlgorithmParams).MaxIterations = 100;
 
             core.DefaultOverlapRemovalAlgorithm = OverlapRemovalAlgorithmTypeEnum.FSA;
-            core.DefaultOverlapRemovalAlgorithmParams.HorizontalGap = 50;
-            core.DefaultOverlapRemovalAlgorithmParams.VerticalGap = 50;
+            core.DefaultOverlapRemovalAlgorithmParams.HorizontalGap = 500;
+            core.DefaultOverlapRemovalAlgorithmParams.VerticalGap = 500;
 
             core.DefaultEdgeRoutingAlgorithm = EdgeRoutingAlgorithmTypeEnum.SimpleER;
             

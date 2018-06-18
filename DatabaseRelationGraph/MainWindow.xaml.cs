@@ -64,5 +64,15 @@ namespace DatabaseRelationGraph
 
             zoomViewer.ZoomToFill();
         }
+
+        private void VertexLabelControl_MouseEnter(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void VertexLabelControl_MouseLeave(object sender, MouseEventArgs e)
+        {
+
+        }
     }
 }

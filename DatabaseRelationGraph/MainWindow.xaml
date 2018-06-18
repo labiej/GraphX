@@ -9,6 +9,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.Resources>
+            <Style TargetType="{x:Type controls:VertexControl}">
+                <Setter Property="ToolTip" Value="Test" />
+            </Style>
+        </Grid.Resources>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="auto" />
