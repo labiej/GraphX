@@ -10,7 +10,7 @@ namespace DatabaseRelationGraph.Models
     {
         public static MDatabaseGraph CreateExample()
         {
-            DatabaseInfo database = CSVParser.ParseToDTO(@"E:\temp\relations.csv", false);
+            DatabaseInfo database = DataLayer.ParseToDTO(@"C:\temp\relations.csv", false);
 
             MDatabaseGraph graph = new MDatabaseGraph();
             Dictionary<string, MTable> tableMap = new Dictionary<string, MTable>();

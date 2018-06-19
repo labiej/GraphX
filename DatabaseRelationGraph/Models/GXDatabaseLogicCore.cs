@@ -17,9 +17,9 @@ namespace DatabaseRelationGraph.Models
             {
                 Graph = graph
             };
-            core.DefaultLayoutAlgorithm = LayoutAlgorithmTypeEnum.KK;
-            core.DefaultLayoutAlgorithmParams = core.AlgorithmFactory.CreateLayoutParameters(LayoutAlgorithmTypeEnum.KK);
-            ((KKLayoutParameters)core.DefaultLayoutAlgorithmParams).MaxIterations = 100;
+            core.DefaultLayoutAlgorithm = LayoutAlgorithmTypeEnum.Circular;
+            core.DefaultLayoutAlgorithmParams = core.AlgorithmFactory.CreateLayoutParameters(LayoutAlgorithmTypeEnum.Circular);
+            ((CircularLayoutParameters)core.DefaultLayoutAlgorithmParams).Seed = (int)(DateTime.UtcNow.Ticks % int.MaxValue);
 
             core.DefaultOverlapRemovalAlgorithm = OverlapRemovalAlgorithmTypeEnum.FSA;
             core.DefaultOverlapRemovalAlgorithmParams.HorizontalGap = 500;

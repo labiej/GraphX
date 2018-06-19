@@ -76,6 +76,12 @@
     <Compile Include="Models\MGraphArea.cs" />
     <Compile Include="Models\MTable.cs" />
     <Compile Include="ViewModels\VMBase.cs" />
+    <Compile Include="ViewModels\VMForeignKey.cs" />
+    <Compile Include="ViewModels\VMRelationList.cs" />
+    <Compile Include="ViewModels\VMTable.cs" />
+    <Compile Include="Views\VRelationPopup.xaml.cs">
+      <DependentUpon>VRelationPopup.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -89,6 +95,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\VRelationPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -117,9 +127,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\GraphX.Controls\GraphX.WPF.Controls.csproj">
       <Project>{d2e33fee-6689-4bb4-a95c-1b5c327a1e8f}</Project>

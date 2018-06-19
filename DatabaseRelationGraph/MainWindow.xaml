@@ -7,18 +7,28 @@
         xmlns:models="clr-namespace:DatabaseRelationGraph.Models"
         xmlns:controls="http://schemas.panthernet.ru/graphx/"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" WindowState="Maximized" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.Resources>
             <Style TargetType="{x:Type controls:VertexControl}">
                 <Setter Property="ToolTip" Value="Test" />
+                <EventSetter Event="MouseRightButtonUp" Handler="VertexControl_MouseRightButtonUp" />
             </Style>
         </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="auto" />
         </Grid.ColumnDefinitions>
-        <controls:ZoomControl x:Name="zoomViewer">
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Search" FontSize="24" Margin="0 0 25 0"/>
+            <TextBox Text="Vertex" VerticalAlignment="Center" Height="50" Padding="2 5" FontSize="20" Width="250" Margin="0 0 25 0" x:Name="SearchBox"/>
+            <Button Content="Search" Click="Button_Click" Height="30" Width="75" />
+        </StackPanel>
+        <controls:ZoomControl x:Name="zoomViewer" Grid.Row="1">
             <models:MGraphArea x:Name="Area" />
         </controls:ZoomControl>
     </Grid>

@@ -1,14 +1,9 @@
 ﻿using Microsoft.VisualBasic.FileIO;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
 
 namespace DatabaseRelationGraph.DataAccess
 {
-    public static class CSVParser
+    public static class DataLayer
     {
         public static DatabaseInfo ParseToDTO(string filename, bool hasHeader)
         {
